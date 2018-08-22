@@ -49,7 +49,7 @@ endif
 # old kernel APIs for calling it (S3C_FB_*).
 # Newer SoCs (Exynos 7420 onwards) make use of a new kernel API.
 # WARNING: Support is highly experimental!
-ifneq ($(filter exynos7420 exynos7580 exynos7870 exynos7880 exynos8895, $(TARGET_SOC)),)
+ifneq ($(filter exynos7420 exynos7580 exynos7870 exynos7880 exynos8890 exynos8895, $(TARGET_SOC)),)
 	LOCAL_CFLAGS += -DDECON_FB
 endif
 
@@ -67,7 +67,7 @@ LOCAL_C_INCLUDES := \
 	$(TOP)/hardware/samsung_slsi-cm/$(TARGET_SOC)/libhwcutilsmodule
 
 LOCAL_ADDITIONAL_DEPENDENCIES := \
-	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+	INSTALLED_KERNEL_HEADERS
 
 LOCAL_SRC_FILES := \
 	ExynosDisplay.cpp \
